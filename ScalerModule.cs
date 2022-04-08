@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [HelpURL("https://docs.google.com/document/d/1rdTEVSrCcYOjqTJcFCHj46RvnbdJhmQUb3gHMDhVftI/edit?usp=sharing")]
-public class ScalerModule : SampleScript
+public class ScalerModule : MonoBehaviour
 {
     private Vector3 targetScale = new Vector3(2,2,2);
 
@@ -50,10 +50,5 @@ public class ScalerModule : SampleScript
             yield return null;
         }
         myTransform.localScale = target;
-    }
-
-    public override void Use()
-    {
-        ActivateModule();
     }
 }

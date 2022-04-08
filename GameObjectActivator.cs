@@ -5,7 +5,7 @@ using UnityEngine;
 /// Задаёт указанным объектам значение activeSalfe, равное state
 /// </summary>
 [HelpURL("https://docs.google.com/document/d/1GP4_m0MzOF8L5t5pZxLChu3V_TFIq1czi1oJQ2X5kpU/edit?usp=sharing")]
-public class GameObjectActivator : SampleScript
+public class GameObjectActivator : MonoBehaviour
 {
     [SerializeField]
     private List<StateContainer> targets;
@@ -49,13 +49,6 @@ public class GameObjectActivator : SampleScript
                 Debug.LogError("Элемент " + i + " равен null. Вероятно, была утеряна ссылка. Источник :" + gameObject.name);
             }
         }
-    }
-
-    public override void Use()
-    {
-        ActivateModule();
-
-
     }
 
     #region Материал ещё не изучен

@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [HelpURL("https://docs.google.com/document/d/1RMamVxE-yUpSfsPD_dEa4-Ak1qu6NTo83qY1O4XLxUY/edit?usp=sharing")]
-public class DestroyModule : SampleScript
+public class DestroyModule : MonoBehaviour
 {
     
     [SerializeField]
@@ -10,6 +10,7 @@ public class DestroyModule : SampleScript
     private float destroyDelay;
 
     [SerializeField]
+    [Range(0,10)]
     private int minimalDestroyingObjectsCount;
 
 
@@ -40,10 +41,5 @@ public class DestroyModule : SampleScript
     private void Update()
     {
         
-    }
-
-    public override void Use()
-    {
-        ActivateModule();
     }
 }

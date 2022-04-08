@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Renderer))]
 [HelpURL("https://docs.google.com/document/d/1Cmm__cbik5J8aHAI6PPaAUmEMF3wAcNo3rpgzsYPzDM/edit?usp=sharing")]
-public class TransparentModule : SampleScript
+public class TransparentModule : MonoBehaviour
 {
     [SerializeField]
     [Range(0f,1f)]
@@ -50,10 +50,5 @@ public class TransparentModule : SampleScript
             yield return null;
         }
         mat.color = target;
-    }
-
-    public override void Use()
-    {
-        ActivateModule();
     }
 }
