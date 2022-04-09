@@ -4,44 +4,41 @@ using UnityEngine;
 
 public class FirstStep : SampleScript
 {
-    public Vector3 originPos;
-    public Vector3 localPos;
-    public Vector3 endPos;
-    public float progress;
+    private Vector3 startPos;
+    public Vector3 endPos = new Vector3(3,0,0);
 
     public float speed;
 
+    [SerializeField]
+    private bool _key = false;
 
     private void Start()
     {
         Application.targetFrameRate = 30;
-        originPos = transform.position;
-        Use();
+        startPos = transform.position;
     }
+
 
     [ContextMenu("Активировать скрипт")]
     public override void Use()
     {
-        originPos = transform.position;
+        _key = true;
+        transform.position = Vector3.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
 
-
-        if (originPos != endPos)
+        if (endPos == transform.position)
         {
-            transform.position = Vector3.Lerp(originPos, endPos, progress);
-            progress += speed;
-        }
-        else
-        {
-
-            progress = 0;
-
+            Debug.Log("Успех");
+            _key = false;
         }
     }
 
 
+
     void Update()
     {
-        Use();
-
+        if (_key)
+        {
+            Use();
+        }  
     }
 }

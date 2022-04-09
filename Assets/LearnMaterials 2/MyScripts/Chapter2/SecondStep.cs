@@ -4,21 +4,31 @@ using UnityEngine;
 
 public class SecondStep : SampleScript
 {
-    private Vector3 temp = new Vector3(90, 0, 0);
-    private Vector3 local;
-    [Range(0f,10)]
-    public float xSpeed;
-    [Range(0f, 10)]
-    public float ySpeed;
-    [Range(0f, 10)]
-    public float zSpeed;
+    [Range(0, 10)]
+    public int step;
+
+    [Range(0, 1)]
+    public int xMove;
+    [Range( 0, 1)]
+    public int yMove;
+    [Range(0, 1)] 
+    public int zMove;
+
+    
+
+    [SerializeField]
+    private bool _key = false;
+
+    [ContextMenu("Активировать скрипт")]
     public override void Use()
     {
-        transform.rotation = transform.rotation * Quaternion.Euler(new Vector3(xSpeed, ySpeed, zSpeed) * 10 * Time.deltaTime);
+        _key = true;
+        transform.rotation = transform.rotation * Quaternion.Euler(new Vector3(xMove, yMove, zMove) * step * Time.deltaTime);
         
-        if (local == temp)
+        if (transform.rotation == Quaternion.Euler(new Vector3(90, 0, 0)))
         {
             Debug.Log("Вы прошли 90 градусов");
+            _key = false;
         }
     }
 
@@ -28,6 +38,9 @@ public class SecondStep : SampleScript
     }
     void Update()
     {
-        Use();
+        if (_key)
+        {
+            Use();
+        }
     }
 }
