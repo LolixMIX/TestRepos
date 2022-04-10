@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class FirstStep : SampleScript
 {
-    private Vector3 startPos;
+    [HideInInspector]
+    public Vector3 startPos;
     public Vector3 endPos = new Vector3(3,0,0);
 
     public float speed;
