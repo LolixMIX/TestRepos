@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e05129ddd2a979f408833fc8eaa946b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Next: {fileID: 0}
+  Next: {fileID: 1770173650}
 --- !u!65 &148919350
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b40786f078e13443a0f3323c50d675b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentValue: 10
+  currentValue: 1
   _onDestroyObstacle:
     m_PersistentCalls:
       m_Calls: []
