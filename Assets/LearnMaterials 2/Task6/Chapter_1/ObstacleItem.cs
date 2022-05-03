@@ -23,11 +23,7 @@ public class ObstacleItem : MonoBehaviour
     {
         GetDamage(1f);
     }
-    private void OnMouseUp()
-    {
-        
-   
-    }
+
     private IEnumerator ScaleToDefault()
     {
         float t = 0;

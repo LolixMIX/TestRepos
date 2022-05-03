@@ -24,12 +24,12 @@ public class InteractiveBox : MonoBehaviour
 
         if (Next != null)
         {
-            Ray ray = new Ray(transform.position, transform.forward);
+            Ray ray = new Ray(transform.position, Next.transform.position - transform.position);
             RaycastHit hit;
-            Debug.DrawLine(transform.position, Next.transform.position, Color.red);
-            Debug.DrawLine(transform.position, transform.forward, Color.yellow);
+            //Debug.DrawLine(transform.position, Next.transform.position - transform.position, Color.red);
+            //Debug.DrawLine(transform.position, transform.forward, Color.yellow);
 
-            if (Physics.Raycast(ray,out hit))
+            if (Physics.Raycast(ray, out hit))
             {
                 Pointer.position = hit.point;
                 Debug.Log("Hit");

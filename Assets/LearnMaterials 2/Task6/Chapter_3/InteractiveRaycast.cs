@@ -25,7 +25,7 @@ public class InteractiveRaycast : MonoBehaviour
             {
                 if (hit.collider.tag == ("InteractivePlane"))
                 {
-                    Instantiate(Prefab, hit.point + new Vector3(0, 0.5f), Quaternion.identity);
+                    Instantiate(Prefab, (hit.point + hit.normal) - new Vector3(0,0.5f,0), Quaternion.identity);
                 }
 
                 if (hit.collider.gameObject.GetComponent<TestInterBox>())
@@ -35,9 +35,15 @@ public class InteractiveRaycast : MonoBehaviour
                     {
                         hit.collider.gameObject.GetComponent<TestInterBox>().AddNext(_currentBox);
                         Debug.Log($"Добавил: {_currentBox}");
-                    }   
-                    _currentBox = hit.collider.gameObject.GetComponent<TestInterBox>();
-                    Debug.Log($"Запомнил: {_currentBox}");
+                        _currentBox = null;
+                        Debug.Log("Буфер очищен");
+                    }
+                    else
+                    {
+                        _currentBox = hit.collider.gameObject.GetComponent<TestInterBox>();
+                        Debug.Log($"Запомнил: {_currentBox}");
+                    }
+                    
 
                     //hit.collider.gameObject.GetComponent<TestInterBox>().AddNext(_currentBox);
                     //Debug.Log($"Добавил: {_currentBox}");

@@ -26,11 +26,11 @@ public class TestInterBox : MonoBehaviour
         if (Next != null)
         {
 
-            Ray ray = new Ray(transform.position, transform.forward);
+            Ray ray = new Ray(transform.position, Next.transform.position - transform.position);
             RaycastHit hit;
-            Debug.DrawRay(transform.position, transform.forward * 10f, Color.red);
+            Debug.DrawRay(transform.position, Next.transform.position - transform.position, Color.red);
             
-            Debug.DrawLine(transform.position, Next.transform.position, Color.green);
+            //Debug.DrawLine(transform.position, Next.transform.position - transform.position, Color.green);
             if (Physics.Raycast(ray, out hit))
             {
                 if (hit.collider.gameObject.GetComponent<ObstacleItem>())
